@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-Introduction App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            max-width: 700px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            color: #333;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        .form-control {
+            border-radius: 10px;
+            border: none;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary {
+            border-radius: 25px;
+            background: linear-gradient(45deg, #007bff, #6610f2);
+            border: none;
+            transition: transform 0.2s;
+        }
+        .btn-primary:hover {
+            transform: scale(1.05);
+        }
+        .btn-secondary {
+            border-radius: 25px;
+            transition: transform 0.2s;
+        }
+        .btn-secondary:hover {
+            transform: scale(1.05);
+        }
+        .intro-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+        .intro-card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .intro-card h3 {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4"><i class="fas fa-user-circle"></i> Self-Introduction</h1>
+        <form id="introForm">
+            <div class="mb-3">
+                <label for="nameInput" class="form-label">Name</label>
+                <input type="text" class="form-control" id="nameInput" placeholder="Enter your name" required>
+            </div>
+            <div class="mb-3">
+                <label for="ageInput" class="form-label">Age</label>
+                <input type="number" class="form-control" id="ageInput" placeholder="Enter your age" required>
+            </div>
+            <div class="mb-3">
+                <label for="hobbiesInput" class="form-label">Hobbies</label>
+                <input type="text" class="form-control" id="hobbiesInput" placeholder="e.g., Reading, Gaming, Traveling">
+            </div>
+            <div class="mb-3">
+                <label for="bioInput" class="form-label">Short Bio</label>
+                <textarea class="form-control" id="bioInput" rows="3" placeholder="Tell us a bit about yourself"></textarea>
+            </div>
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary"><i class="fas fa-magic"></i> Generate Introduction</button>
+                <button type="button" class="btn btn-secondary" id="resetBtn"><i class="fas fa-undo"></i> Reset</button>
+            </div>
+        </form>
+        <div class="intro-card" id="introCard">
+            <h3 id="introName"></h3>
+            <p id="introDetails"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
